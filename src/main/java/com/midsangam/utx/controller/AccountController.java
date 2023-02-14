@@ -16,11 +16,11 @@ public class AccountController {
     @Autowired
     private AccountService accountService;
 
-    private AccountRepository account;
+    //private AccountRepository account;
 
-    public AccountController(AccountRepository account){
-        this.account = account;
-    }
+//    public AccountController(AccountRepository account){
+//        this.account = account;
+//    }
 
     @PostMapping("/add")
     public String add(@RequestBody Account account){
