@@ -1,7 +1,8 @@
-package com.midsangam.utx.services;
+package com.midsangam.utx.services.logic;
 
 import com.midsangam.utx.model.Ticket;
 import com.midsangam.utx.repository.TicketRepository;
+import com.midsangam.utx.services.TicketService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

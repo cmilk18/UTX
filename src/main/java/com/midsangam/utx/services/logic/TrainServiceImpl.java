@@ -1,6 +1,7 @@
-package com.midsangam.utx.services;
+package com.midsangam.utx.services.logic;
 
 import com.midsangam.utx.model.Train;
+import com.midsangam.utx.services.TrainService;
 import com.midsangam.utx.store.jpastore.TrainJpaStore;
 import com.midsangam.utx.store.jpastore.repository.TrainRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class TrainServiceImpl implements TrainService{
+public class TrainServiceImpl implements TrainService {
 
     @Autowired
     private TrainJpaStore trainJpaStore;
