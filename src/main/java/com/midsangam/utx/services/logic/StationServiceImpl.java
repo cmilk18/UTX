@@ -1,6 +1,7 @@
-package com.midsangam.utx.services;
+package com.midsangam.utx.services.logic;
 
 import com.midsangam.utx.model.Station;
+import com.midsangam.utx.services.StationService;
 import com.midsangam.utx.store.jpastore.StationJpaStore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class StationServiceImpl implements StationService{
+public class StationServiceImpl implements StationService {
 
     @Autowired
     StationJpaStore stationJpaStore;
