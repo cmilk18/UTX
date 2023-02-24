@@ -31,10 +31,10 @@ public class StationController {
         return stationService.findAllStation();
     }
 
-    @PutMapping("/{stationId}")
+    @PutMapping
     public String update(@PathVariable int stationId, @RequestBody Station station) {
-        
-        return null;
+        stationService.updateStation(station);
+        return "Updated!";
     }
 
     @DeleteMapping("/{stationId}")

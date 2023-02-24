@@ -45,6 +45,11 @@ public class TrainJpaStore implements TrainStore {
     }
 
     @Override
+    public void updateTrain(Train train) {
+        trainRepository.save(new TrainJpo(train));
+    }
+
+    @Override
     public void deleteTrain(int trainId) {
         trainRepository.deleteById(trainId);
     }

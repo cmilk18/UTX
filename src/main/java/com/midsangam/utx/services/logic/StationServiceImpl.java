@@ -25,8 +25,8 @@ public class StationServiceImpl implements StationService {
     }
 
     @Override
-    public String updateStation() {
-        return null;
+    public void updateStation(Station station) {
+        stationJpaStore.updateStation(station);
     }
 
     @Override

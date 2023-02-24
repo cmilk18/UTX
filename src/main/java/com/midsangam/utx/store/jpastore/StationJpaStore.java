@@ -37,6 +37,11 @@ public class StationJpaStore implements com.midsangam.utx.store.jpastore.Station
     }
 
     @Override
+    public void updateStation(Station station) {
+        stationRepository.save(new StationJpo(station));
+    }
+
+    @Override
     public void deleteStation(int stationId) {
         stationRepository.deleteById(stationId);
     }
