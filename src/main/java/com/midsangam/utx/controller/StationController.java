@@ -31,8 +31,9 @@ public class StationController {
         return stationService.findAllStation();
     }
 
-    @PutMapping
+    @PutMapping("/{stationId}")
     public String update(@PathVariable int stationId, @RequestBody Station station) {
+        station.setId(stationId);
         stationService.updateStation(station);
         return "Updated!";
     }

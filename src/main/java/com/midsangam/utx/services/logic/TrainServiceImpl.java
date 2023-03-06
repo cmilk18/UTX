@@ -33,7 +33,7 @@ public class TrainServiceImpl implements TrainService {
 
     @Override
     public void updateTrain(Train train) {
-
+        trainJpaStore.updateTrain(train);
     }
 
     @Override

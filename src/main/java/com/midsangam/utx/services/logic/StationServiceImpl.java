@@ -36,6 +36,7 @@ public class StationServiceImpl implements StationService {
 
     @Override
     public List<Station> findAllStation() {
-        return stationJpaStore.findAllStation();
+        List<Station> stations = stationJpaStore.findAllStation();
+        return stations;
     }
 }
