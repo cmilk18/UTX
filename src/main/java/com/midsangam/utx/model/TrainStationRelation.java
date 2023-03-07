@@ -1,28 +1,26 @@
-package com.midsangam.utx.store.jpastore.jpo;
+package com.midsangam.utx.model;
 
+import com.midsangam.utx.store.jpastore.jpo.StationJpo;
+import com.midsangam.utx.store.jpastore.jpo.TrainJpo;
+import com.midsangam.utx.store.jpastore.jpo.TrainStationRelationJpo;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
 
-@Entity
 @Getter
-@NoArgsConstructor
-@ToString(exclude = {"station_id","train_id"})
+@Setter
+@ToString
 public class TrainStationRelation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name="station_id")
-    private StationJpo station_id;
+    private int station_id;
 
-    @ManyToOne
-    @JoinColumn(name="train_id")
-    private TrainJpo train_id;
+    private int train_id;
 
     private String arrival_time;
 
@@ -31,4 +29,5 @@ public class TrainStationRelation {
     private String delay_time;
 
     private String stop_time;
+
 }

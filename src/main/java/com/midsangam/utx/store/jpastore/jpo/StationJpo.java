@@ -1,16 +1,14 @@
 package com.midsangam.utx.store.jpastore.jpo;
 
 import com.midsangam.utx.model.Station;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "Station")
