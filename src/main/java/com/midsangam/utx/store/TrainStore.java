@@ -10,6 +10,6 @@ public interface TrainStore {
     public int createTrain(Train train);
     public Train findTrainById(int trainId);
     public List<Train> findAllTrain();
-
+    public void updateTrain(Train train);
     public void deleteTrain(int trainId);
 }

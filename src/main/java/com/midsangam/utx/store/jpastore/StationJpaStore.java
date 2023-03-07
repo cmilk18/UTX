@@ -5,6 +5,7 @@ import com.midsangam.utx.store.jpastore.jpo.StationJpo;
 import com.midsangam.utx.store.jpastore.repository.StationRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -34,6 +35,13 @@ public class StationJpaStore implements com.midsangam.utx.store.jpastore.Station
     public List<Station> findAllStation() {
         List<StationJpo> stationJpos = stationRepository.findAll();
         return stationJpos.stream().map(stationJpo -> stationJpo.toDomain()).collect(Collectors.toList());
+    }
+
+    @Override
+    public void updateStation(Station station) {
+        StationJpo stationJpo = new StationJpo(station);
+        stationJpo.setId(station.getId());
+        stationRepository.save(stationJpo);
     }
 
     @Override

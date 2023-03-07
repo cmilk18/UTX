@@ -11,7 +11,7 @@ public interface TrainService {
     public int createTrain(Train train);
     public Train findTrainById(int trainId);
     public List<Train> findAllTrain();
-    public String updateTrain();
+    public void updateTrain(Train train);
 
     public void deleteTrain(int trainId);
 }

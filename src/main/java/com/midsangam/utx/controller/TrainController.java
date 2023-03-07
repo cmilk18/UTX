@@ -32,8 +32,11 @@ public class TrainController {
         return trains;
     }
 
-    public String update(){
-        return null;
+    @PutMapping("/{trainId}")
+    public String update(@PathVariable int trainId,@RequestBody Train train){
+        train.setId(trainId);
+        trainService.updateTrain(train);
+        return "Train Updated";
     }
 
     @DeleteMapping("/{trainId}")
