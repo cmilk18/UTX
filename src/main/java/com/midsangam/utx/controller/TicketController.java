@@ -12,6 +12,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/ticket")
+@CrossOrigin
 public class TicketController {
 
     @Autowired

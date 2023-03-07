@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/station")
+@CrossOrigin
 public class StationController {
     @Autowired
     private StationService stationService;

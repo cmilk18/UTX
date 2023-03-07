@@ -12,6 +12,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/seat")
+@CrossOrigin
 public class SeatController {
 
     @Autowired
