@@ -32,8 +32,8 @@ public class TrainServiceImpl implements TrainService {
     }
 
     @Override
-    public String updateTrain() {
-        return null;
+    public void updateTrain(Train train) {
+        trainJpaStore.updateTrain(train);
     }
 
     @Override

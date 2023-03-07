@@ -9,6 +9,6 @@ public interface StationStore {
     public int createStation(Station station);
     public Station findStationById(int stationId);
     public List<Station> findAllStation();
-
+    public void updateStation(Station station);
     public void deleteStation(int stationId);
 }

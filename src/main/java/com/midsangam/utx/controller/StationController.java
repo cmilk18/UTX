@@ -34,8 +34,9 @@ public class StationController {
 
     @PutMapping("/{stationId}")
     public String update(@PathVariable int stationId, @RequestBody Station station) {
-        
-        return null;
+        station.setId(stationId);
+        stationService.updateStation(station);
+        return "Updated!";
     }
 
     @DeleteMapping("/{stationId}")

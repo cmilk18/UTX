@@ -10,7 +10,7 @@ public interface StationService {
 
     public int createStation(Station station);
 
-    public String updateStation();
+    public void updateStation(Station station);
 
     public void deleteStation(int stationId);
 
