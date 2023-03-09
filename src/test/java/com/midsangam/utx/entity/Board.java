@@ -2,23 +2,22 @@ package com.midsangam.utx.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@ToString
+@ToString(exclude = {"writer"})
 public class Board {
 
     @Id
-    private String email;
-    private String password;
-    private String name;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long bno;
 
+    private String title;
+    private String content;
     @ManyToOne
     private Member writer;
 }

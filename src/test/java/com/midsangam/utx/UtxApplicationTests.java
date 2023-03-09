@@ -11,9 +11,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 public class UtxApplicationTests {
 
 	public static void main(String[] args){
-		var context = SpringApplication.run(UtxApplicationTests.class, args);
-		TestService testService = context.getBean(TestService.class);
-		testService.test();
+		SpringApplication.run(UtxApplicationTests.class, args);
 	}
 
 }

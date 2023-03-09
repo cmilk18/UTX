@@ -56,7 +56,6 @@ public class TrainStationRelationJpo {
     }
 
     public TrainStationRelation toDomain(){
-        System.out.println(stationJpo.toString());
         TrainStationRelation trainStationRelation = TrainStationRelation.builder()
                 .id(id)
                 .station_id(stationJpo.getId())

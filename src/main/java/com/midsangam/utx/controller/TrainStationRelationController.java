@@ -24,4 +24,10 @@ public class TrainStationRelationController {
     public List<TrainStationRelation> findAll(){
         return trainStationRelationService.findAllTrainStationRelation();
     }
+
+    @DeleteMapping("{trainStationRelationId}")
+    public String delete(@PathVariable int trainStationRelationId){
+        trainStationRelationService.deleteTrainStationRelation(trainStationRelationId);
+        return "Deleted!";
+    }
 }

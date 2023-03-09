@@ -42,6 +42,6 @@ public class TrainStationRelationServiceImpl implements TrainStationRelationServ
 
     @Override
     public void deleteTrainStationRelation(int trainStationRelationId) {
-
+        trainStationRelationJpaStore.deleteTrainStationRelation(trainStationRelationId);
     }
 }

@@ -16,9 +16,7 @@ import javax.persistence.Id;
 public class Member {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long bno;
-
-    private String title;
-    private String content;
+    private String email;
+    private String password;
+    private String name;
 }
