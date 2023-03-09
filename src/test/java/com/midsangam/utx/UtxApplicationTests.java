@@ -1,13 +1,19 @@
 package com.midsangam.utx;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
-@SpringBootTest
-class UtxApplicationTests {
+@SpringBootApplication
+@EnableJpaAuditing
+public class UtxApplicationTests {
 
-	@Test
-	void contextLoads() {
+	public static void main(String[] args){
+		var context = SpringApplication.run(UtxApplicationTests.class, args);
+		TestService testService = context.getBean(TestService.class);
+		testService.test();
 	}
 
 }

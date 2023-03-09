@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class TrainStationRelationJpaStore implements TrainStationRelationStore {
@@ -18,8 +19,6 @@ public class TrainStationRelationJpaStore implements TrainStationRelationStore {
     @Override
     public int createTrainStationRelation(TrainStationRelation trainStationRelation) {
         TrainStationRelationJpo trainStationRelationJpo = new TrainStationRelationJpo(trainStationRelation);
-
-        System.out.println(trainStationRelationJpo.toString());
 
         trainStationRelationRepository.save(trainStationRelationJpo);
         return trainStationRelation.getId();
@@ -37,7 +36,9 @@ public class TrainStationRelationJpaStore implements TrainStationRelationStore {
 
     @Override
     public List<TrainStationRelation> findAllTrainStationRelation() {
-        return null;
+
+        List<TrainStationRelationJpo> trainStationRelationJpos = trainStationRelationRepository.findAll();
+        return trainStationRelationJpos.stream().map(trainStationRelationJpo -> trainStationRelationJpo.toDomain()).collect(Collectors.toList());
     }
 
     @Override

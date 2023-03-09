@@ -32,7 +32,7 @@ public class TrainStationRelationServiceImpl implements TrainStationRelationServ
 
     @Override
     public List<TrainStationRelation> findAllTrainStationRelation() {
-        return null;
+        return trainStationRelationJpaStore.findAllTrainStationRelation();
     }
 
     @Override

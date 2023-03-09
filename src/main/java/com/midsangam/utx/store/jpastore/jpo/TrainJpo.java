@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Builder
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "Train")
