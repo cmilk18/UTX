@@ -25,6 +25,13 @@ public class TrainStationRelationController {
         return trainStationRelationService.findAllTrainStationRelation();
     }
 
+    // 업데이트
+    @PutMapping
+    public String update(){
+
+        return null;
+    }
+
     @DeleteMapping("{trainStationRelationId}")
     public String delete(@PathVariable int trainStationRelationId){
         trainStationRelationService.deleteTrainStationRelation(trainStationRelationId);
