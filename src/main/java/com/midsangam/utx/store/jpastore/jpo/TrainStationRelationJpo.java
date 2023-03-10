@@ -6,6 +6,7 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
+@Setter
 @Getter
 @Builder
 @NoArgsConstructor
@@ -44,8 +45,6 @@ public class TrainStationRelationJpo {
         TrainJpo trainJpo = TrainJpo.builder()
                 .id(trainStationRelation.getTrain_id())
                 .build();
-
-        System.out.println(stationJpo.toString());
 
         this.stationJpo = stationJpo;
         this.trainJpo = trainJpo;

@@ -3,6 +3,7 @@ package com.midsangam.utx.services.logic;
 import com.midsangam.utx.model.Station;
 import com.midsangam.utx.services.StationService;
 import com.midsangam.utx.store.jpastore.StationJpaStore;
+import com.midsangam.utx.store.jpastore.jpo.StationJpo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,9 +15,9 @@ public class StationServiceImpl implements StationService {
     @Autowired
     StationJpaStore stationJpaStore;
     @Override
-    public Station findStationById(int stationId) {
-        Station station = stationJpaStore.findStationById(stationId);
-        return station;
+    public StationJpo findStationById(int stationId) {
+        StationJpo stationJpo = stationJpaStore.findStationById(stationId);
+        return stationJpo;
     }
 
     @Override

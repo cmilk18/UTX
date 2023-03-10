@@ -38,7 +38,7 @@ public class SeatServiceImpl implements SeatService {
     public Seat updateSeat(Integer id, Seat seat) {
         Seat seat1 = seatRepository.findById(id).get();
 
-        seat1.setTrainId(seat.getTrainId());
+        seat1.setTrain(seat.getTrain());
         seat1.setLevel(seat.getLevel());
         seat1.setSeatNumber(seat.getSeatNumber());
 

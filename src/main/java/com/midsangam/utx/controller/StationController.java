@@ -3,6 +3,7 @@ package com.midsangam.utx.controller;
 import com.midsangam.utx.model.Station;
 import com.midsangam.utx.services.StationService;
 import com.midsangam.utx.services.TrainService;
+import com.midsangam.utx.store.jpastore.jpo.StationJpo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,9 +23,9 @@ public class StationController {
     }
 
     @GetMapping("/{stationId}")
-    public Station findById(@PathVariable int stationId){
-        Station station = stationService.findStationById(stationId);
-        return station;
+    public StationJpo findById(@PathVariable int stationId){
+        StationJpo stationJpo = stationService.findStationById(stationId);
+        return stationJpo;
     }
 
     @GetMapping("/all")

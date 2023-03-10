@@ -1,18 +1,9 @@
 package com.midsangam.utx.model;
 
-<<<<<<< Updated upstream
 import com.midsangam.utx.store.jpastore.jpo.TrainJpo;
-
-import javax.persistence.*;
-=======
-import lombok.Builder;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
->>>>>>> Stashed changes
+import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
@@ -22,13 +13,9 @@ public class Seat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     //호차
-<<<<<<< Updated upstream
     @ManyToOne
-    private TrainJpo trainId;
-=======
+    private TrainJpo train;
     private String trainNumber;
-    private int trainId;
->>>>>>> Stashed changes
     private String level;
     private String seatNumber;
 
@@ -52,12 +39,12 @@ public class Seat {
         this.id = id;
     }
 
-    public int getTrainId() {
-        return trainId.getId();
+    public int getTrain() {
+        return train.getId();
     }
 
-    public void setTrainId(int trainId) {
-        this.trainId.setId(trainId);
+    public void setTrain(int trainId) {
+        this.train.setId(trainId);
     }
 
     public String getLevel() {
