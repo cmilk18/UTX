@@ -9,6 +9,7 @@ export default function AddTrain() {
     const [train,settrain]=useState({
         name:"",
         
+        
     })
 
     const{name}=train
@@ -43,45 +44,7 @@ export default function AddTrain() {
                      onChange={(e)=>onInputChange(e)}
                      />
                 </div>
-                <div className="mb-3">
-                    <label htmlFor="departureTime" className="form-label">
-                        departureTime
-                    </label>
-                    <input
-                     type={"text"}
-                     className="form-control"
-                     placeholder="Enter departureTime"
-                     name="departureTime"
-                     value={departureTime}
-                     onChange={(e)=>onInputChange(e)}
-                     />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="arrivalTime" className="form-label">
-                        arrivalTime
-                    </label>
-                    <input
-                     type={"text"}
-                     className="form-control"
-                     placeholder="Enter arrivalTime"
-                     name="arrivalTime"
-                     value={arrivalTime}
-                     onChange={(e)=>onInputChange(e)}
-                     />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="delayTime" className="form-label">
-                        delayTime
-                    </label>
-                    <input
-                     type={"text"}
-                     className="form-control"
-                     placeholder="Enter delayTime"
-                     name="delayTime"
-                     value={delayTime}
-                     onChange={(e)=>onInputChange(e)}
-                     />
-                </div>
+                
                 <button type="submit" className="btn btn-outline-primary">SUBMIT</button>
                 <Link type="submit" className="btn btn-outline-danger mx-2" to="/train">CANCEL</Link>
                 </form>

@@ -4,19 +4,19 @@ import { Link} from 'react-router-dom'
 
 export default function SeatHome() {
 
-    const [trains,setSeats]= useState([])
+    const [seats,setSeats]= useState([])
 
     useEffect(()=>{
         loadSeats();
     },[]);
 
-    const loadTrains=async()=>{
-        const result = await axios.get("http://localhost:8080/readall")
+    const loadSeats=async()=>{
+        const result = await axios.get("http://localhost:8080/seat/readAll")
         setSeats(result.data);
     };
 
-    const deleteTrain=async(id)=>{
-        await axios.delete(`http://localhost:8080/delete/${id}`);
+    const deleteSeat=async(id)=>{
+        await axios.delete(`http://localhost:8080/seat/delete/${id}`);
         loadSeats()
     }
 
@@ -35,15 +35,19 @@ export default function SeatHome() {
                 </thead>
                 <tbody>
                     {
-                        trains.map((train,id)=>(
+                        seats.map((seat,id)=>(
                             <tr>
                                 <th scope="row" key={id}>{id+1}</th>
+                                <td>{seat.level}</td>
                                 <td>{seat.seatNumber}</td>
+                                <td>{seat.train.id}</td>
+                                <td>{seat.trainNumber}</td>
+                                
 
                                 <td>
                                     <Link className="btn btn-primary mx-2" to={`/seat/read/${seat.id}`}>View</Link>
                                     <Link className="btn btn-outline-primary mx-2" to={`/seat/update/${seat.id}`}>Edit</Link>
-                                    <button className="btn btn-danger mx-2" onClick={()=>deleteSeat()}>Delete</button>
+                                    <button className="btn btn-danger mx-2" onClick={()=>deleteSeat(seat.id)}>Delete</button>
                                 </td>
                             </tr>
                         ))

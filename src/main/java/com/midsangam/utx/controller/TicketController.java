@@ -22,7 +22,10 @@ public class TicketController {
 
     @PostMapping("/create")
     public String createTicket(@RequestBody TicketDto ticketDto){
-        Seat seat = new Seat(ticketDto.getSeat_id());
+        //Seat seat = new Seat(ticketDto.getSeat_id());
+        Seat seat = Seat.builder()
+                .id(ticketDto.getSeat_id())
+                .build();
         Ticket ticket = new Ticket(ticketDto);
         ticket.setSeat(seat);
         ticketService.createTicket(ticket);

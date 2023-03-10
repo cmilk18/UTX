@@ -1,7 +1,7 @@
 
 import axios from 'axios'
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React,{useState} from 'react'
+import { Link,useNavigate } from 'react-router-dom'
 
 export default function AddSeat() {
 
@@ -11,13 +11,13 @@ export default function AddSeat() {
     trainNumber:"",
     trainId:"",
     level:"",
-    seatNumber
+    seatNumber:""
   })
 
   const{trainNumber,trainId,level,seatNumber}=seat
 
   const onInputChange=(e)=>{
-    setseat({...trainId,[e.target.name]:e.target.value})
+    setseat({...seat,[e.target.name]:e.target.value})
   }
 
   const onSubmit=async(e)=>{
@@ -31,7 +31,7 @@ export default function AddSeat() {
         <div className='row'>
             <div className='col-md-6 offset-md-3 border rounded p-4 mt-2 shadow'>
                 <h2 className='text-center m-4'>Register Seat</h2>
-
+                
                 <form onSubmit={(e)=>onSubmit(e)}>
                     <div className='mb-3'>
                         <label htmlFor='Name' className='form-label'>
@@ -46,7 +46,7 @@ export default function AddSeat() {
                          onChange={(e)=>onInputChange(e)}
                          />
                     </div>
-                    trainNumber,trainId,level,seatNumber
+                    
                     <div className='mb-3'>
                         <label htmlFor='Name' className='form-label'>
                             trainNumber
@@ -86,13 +86,15 @@ export default function AddSeat() {
                          onChange={(e)=>onInputChange(e)}
                          />
                     </div>
+
+                    <button type="submit" className="btn btn-outline-primary">SUBMIT</button>
+                  <Link type="submit" className="btn btn-outline-danger mx-2" to="/seat">CANCEL</Link>
+                
                 </form>
             </div>
         </div>
     </div>
   )
   
-  return (
-    <div>AddSeat</div>
-  )
+  
 }

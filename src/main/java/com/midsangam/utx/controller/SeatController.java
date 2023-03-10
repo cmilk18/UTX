@@ -1,5 +1,6 @@
 package com.midsangam.utx.controller;
 
+import com.midsangam.utx.Dto.SeatDto;
 import com.midsangam.utx.model.Seat;
 import com.midsangam.utx.services.SeatService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,8 @@ public class SeatController {
     private SeatService seatService;
 
     @PostMapping("/create")
-    public String createSeat(@RequestBody Seat seat){
-        seatService.createSeat(seat);
+    public String createSeat(@RequestBody SeatDto seatDto){
+        seatService.createSeat(seatDto);
         return "new seat add";
     }
 
