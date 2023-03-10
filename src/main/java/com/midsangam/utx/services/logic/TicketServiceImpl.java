@@ -42,7 +42,7 @@ public class TicketServiceImpl implements TicketService {
         ticket1.setArrivalStation(ticket.getArrivalStation());
         ticket1.setPrice(ticket.getPrice());
         ticket1.setRequiredTime(ticket.getRequiredTime());
-        ticket1.setSeat(ticket.getSeat());
+
         ticket1.setPurchaseStatus(ticket.getPurchaseStatus());
 
         ticketRepository.save(ticket1);

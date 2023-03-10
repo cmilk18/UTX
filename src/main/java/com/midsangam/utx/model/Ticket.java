@@ -1,11 +1,15 @@
 package com.midsangam.utx.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.midsangam.utx.Dto.TicketDto;
+import lombok.*;
+
+import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString(exclude = "seat")
 public class Ticket {
 
     @Id
@@ -17,8 +21,21 @@ public class Ticket {
     private String arrivalStation;
     private String price;
     private String requiredTime;
-    private String seat;
+
     private String purchaseStatus;
+
+    @ManyToOne
+    private Seat seat;
+
+    public Ticket(TicketDto ticketDto){
+        departureTime = ticketDto.getDepartureTime();
+        departureStation = ticketDto.getDepartureStation();
+        arrivalTime = ticketDto.getArrivalTime();
+        arrivalStation = ticketDto.getArrivalStation();
+        price = ticketDto.getPrice();
+        requiredTime = ticketDto.getRequiredTime();
+        purchaseStatus = ticketDto.getPurchaseStatus();
+    }
 
     public String getPurchaseStatus() {
         return purchaseStatus;
@@ -84,11 +101,5 @@ public class Ticket {
         this.requiredTime = requiredTime;
     }
 
-    public String getSeat() {
-        return seat;
-    }
 
-    public void setSeat(String seat) {
-        this.seat = seat;
-    }
 }
