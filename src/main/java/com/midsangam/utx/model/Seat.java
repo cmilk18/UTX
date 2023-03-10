@@ -1,9 +1,8 @@
 package com.midsangam.utx.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.midsangam.utx.store.jpastore.jpo.TrainJpo;
+
+import javax.persistence.*;
 
 @Entity
 public class Seat {
@@ -12,7 +11,8 @@ public class Seat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     //호차
-    private int trainId;
+    @ManyToOne
+    private TrainJpo trainId;
     private String level;
     private String seatNumber;
 
@@ -25,11 +25,11 @@ public class Seat {
     }
 
     public int getTrainId() {
-        return trainId;
+        return trainId.getId();
     }
 
     public void setTrainId(int trainId) {
-        this.trainId = trainId;
+        this.trainId.setId(trainId);
     }
 
     public String getLevel() {

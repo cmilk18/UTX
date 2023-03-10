@@ -3,10 +3,9 @@ package com.midsangam.utx.controller;
 import com.midsangam.utx.model.TrainStationRelation;
 import com.midsangam.utx.services.TrainStationRelationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/trainstationrelation")
@@ -17,9 +16,25 @@ public class TrainStationRelationController {
 
     @PostMapping
     public String create(@RequestBody TrainStationRelation trainStationRelation){
-        int a = trainStationRelationService.createTrainStationRelation(trainStationRelation);
-        System.out.println(a);
-//        System.out.println(trainStationRelation.toString());
+        trainStationRelationService.createTrainStationRelation(trainStationRelation);
         return "New Created!";
+    }
+
+    @GetMapping("/all")
+    public List<TrainStationRelation> findAll(){
+        return trainStationRelationService.findAllTrainStationRelation();
+    }
+
+    // 업데이트
+    @PutMapping
+    public String update(){
+
+        return null;
+    }
+
+    @DeleteMapping("{trainStationRelationId}")
+    public String delete(@PathVariable int trainStationRelationId){
+        trainStationRelationService.deleteTrainStationRelation(trainStationRelationId);
+        return "Deleted!";
     }
 }

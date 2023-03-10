@@ -20,11 +20,11 @@ public class TrainStationRelationJpo {
 
     @ManyToOne
     @JoinColumn(name="station_id")
-    private StationJpo station;
+    private StationJpo stationJpo;
 
     @ManyToOne
     @JoinColumn(name="train_id")
-    private TrainJpo train;
+    private TrainJpo trainJpo;
 
     private String arrival_time;
 
@@ -45,16 +45,26 @@ public class TrainStationRelationJpo {
                 .id(trainStationRelation.getTrain_id())
                 .build();
 
-        station = stationJpo;
-        train = trainJpo;
+        System.out.println(stationJpo.toString());
+
+        this.stationJpo = stationJpo;
+        this.trainJpo = trainJpo;
         arrival_time = trainStationRelation.getArrival_time();
         departure_time = trainStationRelation.getDeparture_time();
         delay_time = trainStationRelation.getDelay_time();
         stop_time = trainStationRelation.getStop_time();
     }
 
-    public TrainStationRelationJpo toDomain(TrainStationRelationJpo trainStationRelation){
-        TrainStationRelationJpo trainStationRelationJpo = new TrainStationRelationJpo();
-        return null;
+    public TrainStationRelation toDomain(){
+        TrainStationRelation trainStationRelation = TrainStationRelation.builder()
+                .id(id)
+                .station_id(stationJpo.getId())
+                .train_id(trainJpo.getId())
+                .arrival_time(arrival_time)
+                .departure_time(departure_time)
+                .delay_time(delay_time)
+                .stop_time(stop_time)
+                .build();
+        return trainStationRelation;
     }
 }
