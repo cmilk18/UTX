@@ -2,13 +2,15 @@ package com.midsangam.utx.store.jpastore;
 
 import com.midsangam.utx.model.TrainStationRelation;
 import com.midsangam.utx.store.TrainStationRelationStore;
-import com.midsangam.utx.store.jpastore.jpo.StationJpo;
 import com.midsangam.utx.store.jpastore.jpo.TrainStationRelationJpo;
 import com.midsangam.utx.store.jpastore.repository.TrainStationRelationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Repository
 public class TrainStationRelationJpaStore implements TrainStationRelationStore {
@@ -30,20 +32,19 @@ public class TrainStationRelationJpaStore implements TrainStationRelationStore {
     }
 
     @Override
-    public List<TrainStationRelationJpo> findTrainStationRelationByStation(StationJpo stationJpo) {
-        List<TrainStationRelationJpo> trainStationRelationJpos = trainStationRelationRepository.findByStationJpo(stationJpo);
-        return trainStationRelationJpos;
+    public List<TrainStationRelation> findTrainStationRelationByStationId(int stationId) {
+        return null;
     }
 
     @Override
-    public List<TrainStationRelationJpo> findAllTrainStationRelationJpo() {
+    public List<TrainStationRelation> findAllTrainStationRelation() {
         List<TrainStationRelationJpo> trainStationRelationJpos = trainStationRelationRepository.findAll();
-        return trainStationRelationJpos;
+        return trainStationRelationJpos.stream().map(trainStationRelationJpo -> trainStationRelationJpo.toDomain()).collect(Collectors.toList());
     }
 
     @Override
-    public void updateTrainStationRelation(TrainStationRelationJpo trainStationRelationJpo) {
-        trainStationRelationRepository.save(trainStationRelationJpo);
+    public void updateTrainStationRelation(TrainStationRelation trainStationRelation) {
+
     }
 
     @Override

@@ -26,9 +26,9 @@ public class StationJpaStore implements com.midsangam.utx.store.jpastore.Station
     }
 
     @Override
-    public StationJpo findStationById(int stationId) {
+    public Station findStationById(int stationId) {
         Optional<StationJpo> stationJpo = stationRepository.findById(stationId);
-        return stationJpo.get();
+        return stationJpo.get().toDomain();
     }
 
     @Override

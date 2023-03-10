@@ -1,13 +1,9 @@
 package com.midsangam.utx.services.logic;
 
-import com.midsangam.utx.model.Station;
 import com.midsangam.utx.model.Train;
 import com.midsangam.utx.model.TrainStationRelation;
 import com.midsangam.utx.services.TrainStationRelationService;
-import com.midsangam.utx.store.jpastore.StationJpaStore;
 import com.midsangam.utx.store.jpastore.TrainStationRelationJpaStore;
-import com.midsangam.utx.store.jpastore.jpo.StationJpo;
-import com.midsangam.utx.store.jpastore.jpo.TrainStationRelationJpo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +14,6 @@ public class TrainStationRelationServiceImpl implements TrainStationRelationServ
 
     @Autowired
     private TrainStationRelationJpaStore trainStationRelationJpaStore;
-
-    @Autowired
-    private StationJpaStore stationJpaStore;
 
     @Override
     public int createTrainStationRelation(TrainStationRelation trainStationRelation) {
@@ -33,22 +26,18 @@ public class TrainStationRelationServiceImpl implements TrainStationRelationServ
     }
 
     @Override
-    public List<TrainStationRelationJpo> findTrainStationRelationByStationId(int stationId) {
-        StationJpo stationJpo = stationJpaStore.findStationById(stationId);
-        List<TrainStationRelationJpo> trainStationRelationJpos = trainStationRelationJpaStore.findTrainStationRelationByStation(stationJpo);
-        return trainStationRelationJpos;
+    public List<TrainStationRelation> findTrainStationRelationByStationId(int stationId) {
+        return null;
     }
 
     @Override
-    public List<TrainStationRelationJpo> findAllTrainStationRelationJpo() {
-        return trainStationRelationJpaStore.findAllTrainStationRelationJpo();
+    public List<TrainStationRelation> findAllTrainStationRelation() {
+        return trainStationRelationJpaStore.findAllTrainStationRelation();
     }
 
     @Override
-    public void updateTrainStationRelation(int trainStationRelationId, TrainStationRelation trainStationRelation) {
-        TrainStationRelationJpo trainStationRelationJpo = new TrainStationRelationJpo(trainStationRelation);
-        trainStationRelationJpo.setId(trainStationRelationId);
-        trainStationRelationJpaStore.updateTrainStationRelation(trainStationRelationJpo);
+    public void updateTrainStationRelation(TrainStationRelation trainStationRelation) {
+
     }
 
     @Override
