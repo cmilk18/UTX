@@ -6,15 +6,14 @@ export default function ViewTrain() {
 
     const [train,setTrain]=useState({
         name:"",
-        departureTime:"",
-        arrivalTime:"",
-        delayTime:""
+       
     })
 
     const {id}=useParams();
 
     useEffect(()=>{
         loadTrain();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
     const loadTrain = async()=>{
@@ -36,18 +35,7 @@ export default function ViewTrain() {
                                 <b>Name:</b>
                                 {train.name}
                             </li>
-                            <li className='list-group-item'>
-                                <b>departureTime:</b>
-                                {train.departureTime}
-                            </li>
-                            <li className='list-group-item'>
-                                <b>arrivalTime:</b>
-                                {train.arrivalTime}
-                            </li>
-                            <li className='list-group-item'>
-                                <b>delayTime:</b>
-                                {train.delayTime}
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>

@@ -8,12 +8,10 @@ export default function AddTrain() {
 
     const [train,settrain]=useState({
         name:"",
-        departureTime:"",
-        arrivalTime:"",
-        delayTime:""
+        
     })
 
-    const{name,departureTime,arrivalTime,delayTime}=train
+    const{name}=train
 
     const onInputChange=(e)=>{
         settrain({...train,[e.target.name]:e.target.value})

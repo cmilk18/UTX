@@ -1,6 +1,8 @@
 package com.midsangam.utx.controller;
 
+import com.midsangam.utx.model.Seat;
 import com.midsangam.utx.model.Ticket;
+import com.midsangam.utx.Dto.TicketDto;
 import com.midsangam.utx.services.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +21,12 @@ public class TicketController {
     private TicketService ticketService;
 
     @PostMapping("/create")
-    public String createTicket(@RequestBody Ticket ticket){
+    public String createTicket(@RequestBody TicketDto ticketDto){
+        Seat seat = new Seat(ticketDto.getSeat_id());
+        Ticket ticket = new Ticket(ticketDto);
+        ticket.setSeat(seat);
         ticketService.createTicket(ticket);
+        System.out.println(ticket.getSeat().getSeatNumber());
         return "new ticket created";
     }
 

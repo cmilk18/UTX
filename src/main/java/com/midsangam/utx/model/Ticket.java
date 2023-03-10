@@ -1,10 +1,14 @@
 package com.midsangam.utx.model;
 
-import lombok.ToString;
+import com.midsangam.utx.Dto.TicketDto;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 @ToString(exclude = "seat")
 public class Ticket {
 
@@ -22,6 +26,16 @@ public class Ticket {
 
     @ManyToOne
     private Seat seat;
+
+    public Ticket(TicketDto ticketDto){
+        departureTime = ticketDto.getDepartureTime();
+        departureStation = ticketDto.getDepartureStation();
+        arrivalTime = ticketDto.getArrivalTime();
+        arrivalStation = ticketDto.getArrivalStation();
+        price = ticketDto.getPrice();
+        requiredTime = ticketDto.getRequiredTime();
+        purchaseStatus = ticketDto.getPurchaseStatus();
+    }
 
     public String getPurchaseStatus() {
         return purchaseStatus;

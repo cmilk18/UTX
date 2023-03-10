@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import { Link} from 'react-router-dom'
 
-export default function Home() {
+export default function TrainHome() {
 
     const [trains,setTrains] = useState([])
 
@@ -28,9 +28,7 @@ export default function Home() {
     <tr>
       <th scope="col">#</th>
       <th scope="col">Name</th>
-      <th scope="col">departureTime</th>
-      <th scope="col">arrivalTime</th>
-      <th scope="col">delayTime</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -39,9 +37,7 @@ export default function Home() {
             <tr>
             <th scope="row" key={id}>{id+1}</th>
             <td>{train.name}</td>
-            <td>{train.departureTime}</td>
-            <td>{train.arrivalTime}</td>
-            <td>{train.delayTime}</td>
+            
             <td>
                 <Link className="btn btn-primary mx-2" to={`/train/${train.id}`}>View</Link>
                 <Link className="btn btn-outline-primary mx-2" to={`/train/update/${train.id}`}>Edit</Link>
