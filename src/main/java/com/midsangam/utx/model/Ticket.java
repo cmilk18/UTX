@@ -27,6 +27,9 @@ public class Ticket {
     @ManyToOne
     private Seat seat;
 
+    @ManyToOne
+    private Customer customer;
+
     public Ticket(TicketDto ticketDto){
         departureTime = ticketDto.getDepartureTime();
         departureStation = ticketDto.getDepartureStation();
