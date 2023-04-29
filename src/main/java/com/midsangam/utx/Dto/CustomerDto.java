@@ -13,11 +13,11 @@ import javax.persistence.Id;
 public class CustomerDto {
 
     @Id
-    private String id;
+    private int id;
+    private String email;
     private String password;
     private String name;
     private int age;
-    private String email;
     private String phoneNumber;
     private String level;
     private int point;

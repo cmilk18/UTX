@@ -4,6 +4,8 @@ import com.midsangam.utx.Dto.CustomerDto;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Builder
@@ -16,11 +18,12 @@ public
 class Customer {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String email;
     private String password;
     private String name;
     private int age;
-    private String email;
     private String phoneNumber;
     private String level;
     private int point;
