@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 @RequestMapping("customer")
 @RestController
 public class CustomerController {
@@ -16,12 +18,13 @@ public class CustomerController {
 
     @PostMapping
     public String create(@RequestBody CustomerDto customerDto){
-        customerService.createCustomer(customerDto);
-        return "Customer Created!";
+        if(!customerService.createCustomer(customerDto))
+            return "Create Fail";
+        return "Create Success";
     }
 
     @GetMapping("{customerId}")
-    public Customer read(@PathVariable String customerId){
+    public Customer read(@PathVariable int customerId){
         Customer customer = customerService.readCustomerById(customerId);
         return customer;
     }
@@ -33,8 +36,20 @@ public class CustomerController {
     }
 
     @DeleteMapping("{customerId}")
-    public String delete(@PathVariable String customerId){
+    public String delete(@PathVariable int customerId){
         customerService.deleteCustomerById(customerId);
         return "Deleted!";
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestBody CustomerDto customerDto, HttpSession session){
+        Customer customer = customerService.login(customerDto);
+
+        if(customer == null)
+            return "로그인 실패";
+
+        session.setAttribute("loginId", customer.getId());
+        session.setAttribute("loginEmail", customer.getEmail());
+        return "로그인 성공";
     }
 }
