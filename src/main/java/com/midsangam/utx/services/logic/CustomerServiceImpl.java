@@ -1,6 +1,7 @@
 package com.midsangam.utx.services.logic;
 
 import com.midsangam.utx.Dto.CustomerDto;
+import com.midsangam.utx.Dto.CustomerLoginDto;
 import com.midsangam.utx.model.Customer;
 import com.midsangam.utx.repository.CustomerRepository;
 import com.midsangam.utx.services.CustomerService;
@@ -48,15 +49,15 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer login(CustomerDto customerDto) {
-        Optional<Customer> customerOptional = customerRepository.findByEmail(customerDto.getEmail());
+    public Customer login(CustomerLoginDto customerLoginDto) {
+        Optional<Customer> customerOptional = customerRepository.findByEmail(customerLoginDto.getEmail());
 
         // Login 실패
         if(!customerOptional.isPresent())
             return null;
 
         Customer customer = customerOptional.get();
-        if(customer.getPassword().equals(customerDto.getPassword())){
+        if(customer.getPassword().equals(customerLoginDto.getPassword())){
             // 로그인 성공
             return customer;
         } else{

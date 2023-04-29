@@ -1,6 +1,7 @@
 package com.midsangam.utx.services;
 
 import com.midsangam.utx.Dto.CustomerDto;
+import com.midsangam.utx.Dto.CustomerLoginDto;
 import com.midsangam.utx.model.Customer;
 import org.springframework.stereotype.Service;
 
@@ -13,5 +14,5 @@ public interface CustomerService {
 
     Customer updateCustomer(CustomerDto customerDto);
 
-    Customer login(CustomerDto customerDto);
+    Customer login(CustomerLoginDto customerLoginDto);
 }

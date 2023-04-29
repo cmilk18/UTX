@@ -1,6 +1,7 @@
 package com.midsangam.utx.controller;
 
 import com.midsangam.utx.Dto.CustomerDto;
+import com.midsangam.utx.Dto.CustomerLoginDto;
 import com.midsangam.utx.model.Customer;
 import com.midsangam.utx.services.CustomerService;
 import org.apache.ibatis.annotations.Delete;
@@ -42,8 +43,8 @@ public class CustomerController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody CustomerDto customerDto, HttpSession session){
-        Customer customer = customerService.login(customerDto);
+    public String login(@RequestBody CustomerLoginDto customerLoginDto, HttpSession session){
+        Customer customer = customerService.login(customerLoginDto);
 
         if(customer == null)
             return "로그인 실패";
